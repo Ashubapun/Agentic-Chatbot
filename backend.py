@@ -38,6 +38,7 @@ def chatbot(state: State):
 # Use Persistance
 checkpointer = InMemorySaver()
 
+
 # Build StateGraph
 graphbuilder = StateGraph(State)
 
@@ -49,5 +50,4 @@ graphbuilder.add_edge(START, "chatbot")
 graphbuilder.add_edge("chatbot", END)
 
 bot = graphbuilder.compile(checkpointer=checkpointer)
-
 
