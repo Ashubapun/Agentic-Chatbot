@@ -1,11 +1,12 @@
 import streamlit as st
-from backend import bot
+from db_backend import bot
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
 import uuid
 from utils.generate_thread import generate_thread_id
 from utils.generate_new_chat import new_chat
 from utils.add_threads import add_thread_id
 from utils.load_chat_history import load_chat
+from utils.retrieve_threads import retrieve_all_threads
 
 
 # st.session_state -> dict -> 
@@ -19,7 +20,7 @@ if "thread_id" not in st.session_state:
 
 
 if "chat_threads" not in st.session_state:
-    st.session_state["chat_threads"] = []
+    st.session_state["chat_threads"] = retrieve_all_threads()
 
 add_thread_id(st.session_state["thread_id"])
 

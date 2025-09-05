@@ -21,9 +21,6 @@ from langchain_core.messages import HumanMessage
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
-# response = llm.invoke([HumanMessage(content="Hello, how are you?")])
-# print(response.content)
-
 #Define State
 class State(TypedDict):
     messages : Annotated[list[BaseMessage], add_messages]
